@@ -4,4 +4,5 @@ public interface PalindromeView {
 
     void checkPalindrome();
     void showErrorMessage();
+    void showDialog();
 }
