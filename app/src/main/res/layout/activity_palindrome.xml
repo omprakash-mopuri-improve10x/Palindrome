@@ -34,11 +34,11 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/maxim_char_txt"
+        app:layout_constraintTop_toBottomOf="@+id/show_error_msg_txt"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/maxim_char_txt"
+        android:id="@+id/show_error_msg_txt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
