@@ -3,8 +3,8 @@ package com.omprakash.palindrome;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import com.omprakash.palindrome.databinding.ActivityPalindromeBinding;
@@ -15,7 +15,7 @@ public class PalindromeActivity extends AppCompatActivity implements PalindromeV
     private ActivityPalindromeBinding binding;
     private CustomAlertDialogBinding itemBinding;
     String input;
-    String output;
+    boolean output;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +29,17 @@ public class PalindromeActivity extends AppCompatActivity implements PalindromeV
     public void checkPalindrome() {
         binding.checkPalindromeBtn.setOnClickListener(v -> {
             input = binding.inputTxt.getText().toString();
+            output = new PalindromeControllerImpl().isPalindrome(input);
             if (input.equals("") == false) {
-                output = new PalindromeControllerImpl().findPalindrome(input);
-                showDialog();
+                if (output) {
+                    showDialog(input + " is a Palindrome", R.drawable.correct, Color.GREEN);
+                } else {
+                    showDialog(input + " is not a Palindrome", R.drawable.incorrect, Color.RED);
+                }
             } else {
-                Toast.makeText(this, "Please enter the word", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please enter the input", Toast.LENGTH_SHORT).show();
             }
+
         });
     }
 
@@ -44,12 +49,14 @@ public class PalindromeActivity extends AppCompatActivity implements PalindromeV
     }
 
     @Override
-    public void showDialog() {
+    public void showDialog(String text, int imageResourceId, int textColor) {
         itemBinding = CustomAlertDialogBinding.inflate(getLayoutInflater());
         Dialog dialog = new Dialog(this);
         dialog.setContentView(itemBinding.getRoot());
-        itemBinding.messageTxt.setText(output);
-        itemBinding.imageView.setOnClickListener(v -> {
+        itemBinding.showImg.setImageResource(imageResourceId);
+        itemBinding.messageTxt.setText(text);
+        itemBinding.messageTxt.setTextColor(textColor);
+        itemBinding.crossImg.setOnClickListener(v -> {
             dialog.cancel();
         });
         dialog.show();

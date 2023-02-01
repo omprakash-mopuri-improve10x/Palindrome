@@ -2,16 +2,16 @@ package com.omprakash.palindrome;
 
 public class PalindromeControllerImpl implements PalindromeController{
     @Override
-    public String findPalindrome(String input) {
+    public boolean isPalindrome(String input) {
        String reverse = "";
        input = input.trim();
        for (int i = input.length() - 1; i >= 0; i--) {
            reverse += input.charAt(i);
        }
        if (input.equals(reverse)) {
-           return input + " is a Palindrome";
+           return true;
        } else {
-           return input + " is not a Palindrome";
+           return false;
        }
     }
 }

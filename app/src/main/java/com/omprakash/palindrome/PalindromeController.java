@@ -2,6 +2,6 @@ package com.omprakash.palindrome;
 
 public interface PalindromeController {
 
-    String findPalindrome(String input);
+    boolean isPalindrome(String input);
 }
 

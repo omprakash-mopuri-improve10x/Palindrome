@@ -4,5 +4,5 @@ public interface PalindromeView {
 
     void checkPalindrome();
     void showErrorMessage();
-    void showDialog();
+    void showDialog(String text, int imageResourceId, int textColor);
 }
