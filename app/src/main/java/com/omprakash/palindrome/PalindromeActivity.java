@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PalindromeActivity extends AppCompatActivity implements PalindromeActivityView{
+public class PalindromeActivity extends AppCompatActivity implements PalindromeView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

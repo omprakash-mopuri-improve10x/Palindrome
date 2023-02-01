@@ -1,6 +1,6 @@
 package com.omprakash.palindrome;
 
-public interface PalindromeActivityView {
+public interface PalindromeView {
 
     void checkPalindrome();
     void showErrorMessage();
