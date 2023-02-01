@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.omprakash.palindrome.databinding.ActivityPalindromeBinding;
@@ -31,7 +32,10 @@ public class PalindromeActivity extends AppCompatActivity implements PalindromeV
             if (input.equals("") == false) {
                 if (output) {
                     showDialog(input + " is a Palindrome", R.drawable.correct, Color.GREEN);
-                } else {
+                } else if (input.length() >= 20) {
+                    binding.showErrorMsgTxt.setVisibility(View.VISIBLE);
+                    binding.showErrorMsgTxt.setTextColor(Color.RED);
+                }else {
                     showDialog(input + " is not a Palindrome", R.drawable.incorrect, Color.RED);
                 }
             } else {
