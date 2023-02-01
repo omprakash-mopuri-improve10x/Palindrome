@@ -2,7 +2,7 @@ package com.omprakash.palindrome;
 
 public class PalindromeControllerImpl implements PalindromeController{
     @Override
-    public boolean isPalindrome(String input) {
+    public boolean isCheckPalindrome(String input) {
        String reverse = "";
        input = input.trim();
        for (int i = input.length() - 1; i >= 0; i--) {
