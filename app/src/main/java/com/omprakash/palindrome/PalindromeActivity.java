@@ -30,13 +30,15 @@ public class PalindromeActivity extends AppCompatActivity implements PalindromeV
             String input = binding.inputTxt.getText().toString();
             boolean output = new PalindromeControllerImpl().isCheckPalindrome(input);
             if (input.equals("") == false) {
-                if (output) {
-                    showDialog(input + " is a Palindrome", R.drawable.correct, Color.GREEN);
-                } else if (input.length() >= 20) {
+                if (input.length() >= 21) {
                     binding.showErrorMsgTxt.setVisibility(View.VISIBLE);
                     binding.showErrorMsgTxt.setTextColor(Color.RED);
-                }else {
+                } else if (output) {
+                    showDialog(input + " is a Palindrome", R.drawable.correct, Color.GREEN);
+                    binding.showErrorMsgTxt.setVisibility(View.GONE);
+                } else {
                     showDialog(input + " is not a Palindrome", R.drawable.incorrect, Color.RED);
+                    binding.showErrorMsgTxt.setVisibility(View.GONE);
                 }
             } else {
                 Toast.makeText(this, "Please enter the input", Toast.LENGTH_SHORT).show();
